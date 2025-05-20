@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreePBX Dialplan Generator - Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FreePBX Dialplan Generator</h1>
+        </div>
+        <div class="example-section section-usecase">
+            <h2>Use Case Example</h2>
+            <p>Suppose a telecom operator assigns SIM cards based on specific prefixes:</p>
+            <table class="example-table">
+                <thead>
+                    <tr><th>Prefix</th><th>Phone Number</th><th>SIM Assignment</th></tr>
+                </thead>
+                <tbody>
+                    <tr><td>541</td><td>098 123 1231</td><td>SIM 1</td></tr>
+                    <tr><td>542</td><td>098 123 1232</td><td>SIM 2</td></tr>
+                    <tr><td>543</td><td>098 123 1233</td><td>SIM 3</td></tr>
+                    <tr><td>544</td><td>098 123 1234</td><td>SIM 4</td></tr>
+                </tbody>
+            </table>
+            <p>To generate dialplan rules for these, enter <b>541</b> as the minimum prefix and <b>544</b> as the maximum prefix, or use the range option (e.g., range 4 starting from 541). Click <b>Generate Dialplan</b> to preview and download the configuration.</p>
+        </div>
+        <div class="example-section section-patterns">
+            <h2>Pattern Explanation</h2>
+            <div class="pattern-explanation-list">
+                <div><b>X.</b> — Matches any single digit (0-9), repeated any number of times (e.g., 1, 12, 123...)</div>
+                <div><b>Z.</b> — Matches any digit from 1-9, repeated any number of times (e.g., 1, 12, 123...)</div>
+                <div><b>00385Z.</b> — Matches numbers starting with 00385 followed by one or more digits from 1-9</div>
+                <div><b>385Z.</b> — Matches numbers starting with 385 followed by one or more digits from 1-9</div>
+            </div>
+        </div>
+        <div class="example-section section-matching-examples">
+            <h2>Pattern Matching Examples</h2>
+            <div class="pattern-matching-examples">
+                <div><b>099 123 1234</b> — Matches <b>X.</b> (any number starting with a single digit, e.g., 0...)</div>
+                <div><b>99 123 1234</b> — Matches <b>X.</b> (any number starting with a single digit, e.g., 9...)</div>
+                <div><b>385 99 123 1234</b> — Matches <b>385Z.</b> (starts with 385, then 9...)</div>
+                <div><b>00385 99 123 1234</b> — Matches <b>00385Z.</b> (starts with 00385, then 9...)</div>
+                <div><b>123 1234</b> — Matches <b>Z.</b> (starts with 1...)</div>
+            </div>
+        </div>
+        <div class="example-section section-defaults">
+            <h2>Default Settings</h2>
+            <p>By default, the generator uses Croatian number format patterns:</p>
+            <b>00385Z.</b>, <b>385Z.</b>, <b>X.</b>, <b>Z.</b>, <b>X.</b>
+            <p>These can be changed to any patterns you need for your use case. Just add, remove, or edit the patterns in the "Match Patterns" section.</p>
+        </div>
+        <div style="text-align:center;margin-bottom:2rem;">
+            <a href="index.html" class="green-btn">Back to Generator</a>
+        </div>
+    </div>
+    <footer class="footer">
+        Developed by Dino Pizek
+    </footer>
+</body>
+</html> 

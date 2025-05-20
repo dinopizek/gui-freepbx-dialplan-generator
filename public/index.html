@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreePBX Dialplan Generator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>FreePBX Dialplan Generator</h1>
+        </div>
+        <div class="form-container">
+            <form id="dialplanForm">
+                <div style="margin-bottom: 1.5rem;">
+                    <a href="example.html" class="green-btn" style="text-decoration:none;">Example</a>
+                </div>
+                <h2 style="margin-bottom: 1rem;">Dialplan Generator</h2>
+                <div class="form-group">
+                    <label for="minPrefix">Minimum Prefix:</label>
+                    <input type="number" id="minPrefix" name="minPrefix" required placeholder="e.g., 433">
+                </div>
+                <div class="form-group">
+                    <label for="rangeToggle" style="display:inline-block;margin-right:10px;">Use Range</label>
+                    <input type="checkbox" id="rangeToggle" style="width:auto;display:inline-block;vertical-align:middle;">
+                </div>
+                <div class="form-group" id="maxPrefixGroup">
+                    <label for="maxPrefix">Maximum Prefix:</label>
+                    <input type="number" id="maxPrefix" name="maxPrefix" required placeholder="e.g., 544">
+                </div>
+                <div class="form-group" id="rangeGroup" style="display:none;">
+                    <label for="prefixRange">Range (number of prefixes):</label>
+                    <input type="number" id="prefixRange" name="prefixRange" min="1" placeholder="e.g., 32">
+                </div>
+                <div class="form-group">
+                    <label>Number Masking:</label>
+                    <div id="maskingPairs"></div>
+                    <button type="button" id="addMaskBtn">Add Mask</button>
+                </div>
+                <div class="form-group">
+                    <label>Match Patterns:</label>
+                    <div id="patternList"></div>
+                    <button type="button" id="addPatternBtn">Add Pattern</button>
+                    <button type="button" id="resetPatternsBtn">Reset to Default</button>
+                </div>
+            </form>
+        </div>
+        <div id="simCardContainer" class="result-container">
+            <div class="result-header">
+                <h2>SIM Card Prefixes</h2>
+            </div>
+            <div id="simCardPreview" class="preview-table"></div>
+            <div style="display: flex; gap: 10px; align-items: center;"></div>
+        </div>
+        <div id="result" class="result-container">
+            <div class="result-header">
+                <h2>Dialplan Preview</h2>
+            </div>
+            <div id="fullPreview" class="preview-table"></div>
+            <div style="display: flex; gap: 10px; align-items: center;">
+                <button id="downloadBtn" class="green-btn" style="display: none;">Download CSV</button>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Developed by Dino Pizek</p>
+        <p>
+            <a href="https://github.com/dinopizek" target="_blank">GitHub</a> |
+            <a href="mailto:dinopizek@icloud.com">Contact</a>
+        </p>
+    </footer>
+    <script src="app.js"></script>
+</body>
+</html>

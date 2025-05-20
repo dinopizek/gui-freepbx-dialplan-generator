@@ -1,0 +1,18 @@
+{
+  "name": "freepbx-dialplan-generator-web",
+  "version": "1.0.0",
+  "description": "Web interface for FreePBX dialplan generator",
+  "main": "src/app.js",
+  "scripts": {
+    "start": "node src/app.js",
+    "dev": "nodemon src/app.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "body-parser": "^1.20.2",
+    "csv-writer": "^1.6.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.0.2"
+  }
+} 
